@@ -55,9 +55,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     startButton.addEventListener("click", (event) => {
       event.stopPropagation(); // Evita que el clic se propague al contenedor del video
-      startImage.src = "assets/startG.gif";
+      startImage.src = "../assets/startG.gif";
       setTimeout(async () => {
-        startImage.src = "assets/startP.png";
+        startImage.src = "../assets/startP.png";
         await openMinecraft(eventData.ip, eventData.port, eventData.serverStatus);
       }, 400);
     });
@@ -65,7 +65,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     downloadButton.addEventListener("click", (event) => {
       event.stopPropagation(); // Evita que el clic se propague al contenedor del video
       if (eventData.packs) {
-        openDownloadPacks(eventData.packs);
+        setTimeout(() => {
+          openDownloadPacks(eventData.packs);
+        }, 500);
       } else {
         console.error("URL de los packs no disponible.");
       }

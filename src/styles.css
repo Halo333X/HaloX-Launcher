@@ -10,6 +10,12 @@
     format("truetype");
 }
 
+@font-face {
+  font-family: "mojangles";
+  src: url("https://ignitedsstudios.github.io/IgnitedsLauncher/src/fonts/Mojang-Regular.ttf")
+    format("truetype");
+}
+
 body,
 html {
   margin: 0;
@@ -40,13 +46,15 @@ html {
 }
 
 #logo {
-  width: 80px;
-  height: 80px;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
 }
 
 #title {
-  font-family: 'titles';
-  font-size: 20px;
+  margin-left: 10px;
+  font-family: 'mojangles';
+  font-size: 30px;
   color: #fff;
   margin-right: auto; /* Empuja el título a la izquierda */
 }
@@ -71,8 +79,8 @@ html {
 
 /* Estilos generales */
 #startImage {
-  width: 35%;
-  height: 35%;
+  width: 30%;
+  height: 30%;
   object-fit: contain;
 }
 
@@ -80,12 +88,20 @@ html {
   min-width: 10%;
   max-width: 30%;
   padding: 6px 12px;
-  background-color: #000;
+  background-color: #9d0095;
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 2px;
   cursor: pointer;
-  font-family: 'normal';
+  font-family: 'mojangles';
+  border-bottom: 7px solid #7d0077;
+  box-shadow: 0px 0px 0 2px black;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+#downloadButton:active {
+  border-bottom: 5px solid #7d0077;
+  box-shadow: 0px 2px 0 1px black;
 }
 
 /* Media queries para pantallas más pequeñas */
