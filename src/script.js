@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const response = await fetch(
-      "https://ignitedsstudios.github.io/IgnitedsLauncher/src/event.json"
+      "https://halo333x.github.io/SurvivalCraft/src/event.json"
     );
     const eventData = await response.json();
 
