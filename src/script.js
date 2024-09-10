@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       video.style.width = "100%";
       video.style.height = "100%";
       video.style.objectFit = "cover";
-      video.src = eventData.background;
+      video.src = eventData.background; // some backgrounds: https://www.desktophut.com/search/minecraft
       backgroundContainer.appendChild(video);
 
       // Intenta reproducir el video después de 2 segundos
