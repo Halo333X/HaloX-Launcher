@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Igniteds Launcher</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="assets/icon.png" type="image/png" />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const video = document.getElementById("backgroundVideo");
+
+        document.addEventListener("click", () => {
+          if (video) {
+            if (video.paused) {
+              video
+                .play()
+                .catch((error) => console.error("Error playing video:", error));
+            } else {
+              video.pause();
+            }
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.code === "Space") {
+            event.preventDefault();
+            if (video) {
+              if (video.paused) {
+                video
+                  .play()
+                  .catch((error) =>
+                    console.error("Error playing video:", error)
+                  );
+              } else {
+                video.pause();
+              }
+            }
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="backgroundContainer">
+        <video id="backgroundVideo" autoplay loop muted></video>
+        <img id="backgroundImage" alt="Background Image" />
+      </div>
+      <div id="header">
+        <img id="logo" src="assets/logo.png" alt="Logo" />
+        <div id="title"></div>
+      </div>
+      <div id="content">
+        <button id="startButton">
+          <img id="startImage" src="assets/startP.png" alt="Start" />
+        </button>
+        <button id="downloadButton">Download Packs</button>
+      </div>
+      <div id="bottomContainer">
+        <button id="reloadButton">
+          <img
+            src="https://ignitedsstudios.github.io/IgnitedsLauncher/src/img/reloadLauncher.png"
+            alt="Reload"
+          />
+        </button>
+        <div id="status">
+          <img id="statusIcon" src="assets/online.png" alt="Status Icon" />
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
