@@ -12,10 +12,9 @@
 
 @font-face {
   font-family: "mojangles";
-  src: url("https://ignitedsstudios.github.io/IgnitedsLauncher/src/fonts/Mojang-Regular.ttf")
+  src: url("../assets/fonts/MinecraftTen.ttf")
     format("truetype");
 }
-
 body,
 html {
   margin: 0;
@@ -39,24 +38,29 @@ html {
 
 #header {
   display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
   align-items: center;
   position: absolute;
   top: 20px;
-  left: 20px;
+  left: 50%; /* Mueve el contenedor al centro */
+  transform: translateX(-50%); /* Ajusta la posición para el centrado */
+  width: 100%; /* Asegura que el contenedor use todo el ancho disponible */
 }
 
 #logo {
-  width: 30px;
-  height: 30px;
+  width: 400px;
   margin-right: 10px;
 }
 
 #title {
-  margin-left: 10px;
   font-family: 'mojangles';
-  font-size: 30px;
-  color: #fff;
-  margin-right: auto; /* Empuja el título a la izquierda */
+  font-size: 40px;
+  color: white;
+  text-shadow:
+    2px 2px 3px black,
+    4px 4px 5px black,
+    6px 6px 7px black; /* Varias sombras para un efecto más grueso */
+  text-align: center; /* Alinea el texto dentro del contenedor */
 }
 
 #content {
@@ -77,7 +81,6 @@ html {
   justify-content: center;
 }
 
-/* Estilos generales */
 #startImage {
   width: 30%;
   height: 30%;
@@ -89,7 +92,7 @@ html {
   max-width: 30%;
   padding: 6px 12px;
   background-color: #9d0095;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 2px;
   cursor: pointer;
@@ -183,7 +186,7 @@ body {
 #playersOnline {
   font-family: 'mojangles';
   color: white;
-  margin-right: 10px;
+  margin-left: 10px;
 }
 
 #pingIcon {
@@ -191,4 +194,12 @@ body {
   height: 20px;
   object-fit: contain;
   margin-left: 10px; /* Espacio entre el icono de ping y el número de jugadores */
+}
+
+#ping {
+  font-family: 'mojangles';
+  color: white;
+  margin-right: 2px;
+  margin-left: 10px;
+  font-size: 10px;
 }

@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     setTimeout(() => {
       video.play();
     }, 2000);
-    title.innerText = eventData.eventName;
+    title.innerText = "";
 
     startButton.addEventListener("click", (event) => {
       event.stopPropagation(); // Evita que el clic se propague al contenedor del video
@@ -88,15 +88,17 @@ document.addEventListener("DOMContentLoaded", async () => {
             else return "ping_red.png";
           }
           statusContainer.innerHTML = `
-            <span id="playersOnline">${playersOnline}</span>
             <img id="statusIcon" src="../assets/playersIcon.png" alt="Players Icon" style="width: 20px; object-fit: contain;" />
+            <span id="playersOnline">${playersOnline}</span>
             <img id="pingIcon" src="../assets/${getPing(ping)}" alt="Ping" style="width: 20px; object-fit: contain; margin-left: 10px;" />
+            <span id="ping">${ping} ms</span>
           `;
         } else {
           statusContainer.innerHTML = `
-            <span id="playersOnline">0</span>
             <img id="statusIcon" src="../assets/playersIcon.png" alt="Players Icon" style="width: 20px; object-fit: contain;" />
+            <span id="playersOnline">0</span>
             <img id="pingIcon" src="../assets/ping_green.png" alt="Ping" style="width: 20px; object-fit: contain; margin-left: 10px;" />
+            <span id="ping">0 ms</span>
           `;
         }
       } catch (error) {
@@ -108,7 +110,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     updatePlayersOnline();
 
     // Configura el intervalo para actualizar el número de jugadores en línea cada 30 segundos
-    setInterval(updatePlayersOnline, 30000); // Cada 30 segundos
+    setInterval(updatePlayersOnline, 1000); // Cada 30 segundos
 
     // Añade un evento de clic en el documento para pausar o reanudar el video
     document.addEventListener("click", () => {
