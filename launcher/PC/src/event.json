@@ -1,9 +1,0 @@
-{
-  "eventName": "SQUID BEDROCK 2",
-  "background": "https://ignitedsstudios.github.io/IgnitedsLauncher/src/img/background2.jpg",
-  "backgroundIsVideo": false,
-  "ip": "br.mcsrv.me",
-  "port": "10907",
-  "packs": "https://cdn.discordapp.com/attachments/1066480386118537389/1073618973557538836/bedrock_secret.txt?ex=66a7ae16&is=66a65c96&hm=c23976cf41b583cb310d7adfee8ec550a218e1afd50979a650e3248d1cf5b27f&",
-  "discord_rpc_event": "Jugando a Squid Bedrock 2!"
-}

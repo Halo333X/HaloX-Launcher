@@ -11,10 +11,10 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false,
     },
-    icon: path.join(__dirname, "img/icon/logo.ico"), // Asegúrate de que la ruta es correcta
+    icon: path.join(__dirname, "img", "icon", "icon.ico"),
   });
   win.maximize();
-  win.loadURL("https://ignitedsstudios.github.io/IgnitedsLauncherWeb/"); // Cambia a loadURL
+  win.loadURL("https://halo333x.github.io/HaloX-Launcher/src/index.html"); // Cambia a loadURL
 
   const emptyMenu = Menu.buildFromTemplate([]);
   Menu.setApplicationMenu(emptyMenu);

@@ -11,8 +11,8 @@
     "electron-builder": "^24.13.3"
   },
   "build": {
-    "appId": "com.ignitedstudios.launcher",
-    "productName": "Igniteds Launcher",
+    "appId": "com.halox.launcher",
+    "productName": "HaloX Launcher",
     "files": [
       "src/**/*",
       "public/**/*",

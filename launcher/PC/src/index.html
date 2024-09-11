@@ -4,101 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="./img/icon/logo.png">
-  <title>Igniteds Launcher</title>
-  <style>
-    body {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-attachment: fixed;
-      background-color: #1c0235;
-    }
-    .background-video {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      min-width: 100%;
-      min-height: 100%;
-      z-index: -1;
-    }
-  </style>
+  <link rel="icon" type="image/png" href="./img/icon/icon.ico">
+  <title>HaloX Launcher</title>
 </head>
 <body>
-  <video autoplay muted loop class="background-video" id="backgroundVideo" style="display: none;">
-    <source src="" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <div class="App">
-    <header class="App-header">
-      <img src="./img/logo.png" class="logo" alt="logo">
-      <h1 class="title">Loading...</h1>
-    </header>
-    <div class="content">
-      <button class="start-button" onclick="handleStartClick()">
-        <img id="dynamicImage" src="./img/start.png" alt="Start">
-      </button>
-      <button class="download-button" onclick="handleDownloadClick()">Download Packs</button>
-    </div>
-  </div>
-  <img src="https://ignitedsstudios.github.io/IgnitedsLauncher/src/img/reloadLauncher.png" class="reload-button" onclick="handleReloadClick()" alt="Reload" width="50px">
-
-  <script>
-    let packsUrl = "#";
-    let serverUrl = "minecraft://connect?serverUrl=NONE&serverPort=NONE";
-
-    function loadEventData() {
-      fetch("https://raw.githubusercontent.com/IgnitedsStudios/IgnitedsLauncher/main/src/event.json")
-        .then(response => response.json())
-        .then(data => {
-          const { eventName, packs, ip, port, backgroundIsVideo, background } = data;
-          document.querySelector("h1.title").textContent = eventName;
-          serverUrl = `minecraft://connect?serverUrl=${ip}&serverPort=${port}`;
-          packsUrl = packs;
-          console.log(JSON.stringify(data));
-          if (backgroundIsVideo) {
-            const videoElement = document.getElementById("backgroundVideo");
-            videoElement.src = background;
-            videoElement.muted = false;
-            videoElement.style.display = 'block';
-            videoElement.play();
-          } else {
-            document.body.style.backgroundImage = `url(${background})`;
-            document.getElementById("backgroundVideo").style.display = 'none';
-          }
-        })
-        .catch(error => {
-          console.error("Error al cargar el archivo JSON:", error);
-        });
-    }
-
-    window.onload = loadEventData;
-
-    let showGif = false;
-    let timerEnded = false;
-    function handleStartClick() {
-      document.getElementById("dynamicImage").src = "./img/start.gif";
-      setTimeout(() => {
-        document.getElementById("dynamicImage").src = "./img/start.png";
-        timerEnded = true;
-        if (timerEnded) {
-          window.location.href = serverUrl;
-          window.close();
-        }
-      }, 800);
-    }
-
-    function handleDownloadClick() {
-      if (packsUrl) {
-        window.open(packsUrl, "_self");
-      } else {
-        console.error("URL de los packs no disponible.");
-      }
-    }
-
-    function handleReloadClick() {
-      location.reload();
-    }
-  </script>
+  
 </body>
 </html>
