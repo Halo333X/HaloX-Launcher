@@ -3,7 +3,7 @@ import { WebView } from "react-native-webview";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
-const launcher = 'https://halo333x.github.io/HaloX-Launcher/src/index.html';
+const launcher = 'https://halo333x.github.io/HaloX-Launcher/src/';
 
 const App = () => {
   return (

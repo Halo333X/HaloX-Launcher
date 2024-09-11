@@ -14,7 +14,7 @@ function createWindow() {
     icon: path.join(__dirname, "img", "icon", "icon.ico"),
   });
   win.maximize();
-  win.loadURL("https://halo333x.github.io/HaloX-Launcher/src/index.html"); // Cambia a loadURL
+  win.loadURL("https://halo333x.github.io/HaloX-Launcher/src/"); // Cambia a loadURL
 
   const emptyMenu = Menu.buildFromTemplate([]);
   Menu.setApplicationMenu(emptyMenu);
