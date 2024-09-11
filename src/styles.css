@@ -140,12 +140,18 @@ body {
   -ms-user-select: none; /* For Internet Explorer/Edge */
 }
 
+#backgroundContainer {
+  transition: opacity 0.5s ease-in-out; /* Cambia 0.5s por la duración que prefieras */
+}
+
 #bottomContainer {
   position: absolute;
   bottom: 20px;
-  left: 20px; /* Alinea el contenedor al lado izquierdo */
+  width: calc(100% - 40px); /* Ajusta el ancho para hacer espacio para ambos elementos */
   display: flex;
+  justify-content: space-between; /* Alinea los elementos a los extremos */
   align-items: center;
+  left: 20px; /* Alinea el contenedor al lado izquierdo */
 }
 
 #reloadButton {
@@ -158,15 +164,14 @@ body {
 }
 
 #reloadButton img {
-  width: 30px; /* Ajusta el tamaño de la imagen según sea necesario */
-  height: 30px;
+  width: 25px; /* Ajusta el tamaño de la imagen según sea necesario */
+  height: 25px;
   object-fit: contain;
 }
 
 #status {
   display: flex;
   align-items: center;
-  margin-left: 20px; /* Espacio entre el ícono de estado y el botón de recarga */
 }
 
 #statusIcon {
@@ -175,6 +180,15 @@ body {
   object-fit: contain;
 }
 
-#backgroundContainer {
-  transition: opacity 0.5s ease-in-out; /* Cambia 0.5s por la duración que prefieras */
+#playersOnline {
+  font-family: 'mojangles';
+  color: white;
+  margin-right: 10px;
+}
+
+#pingIcon {
+  width: 20px; /* Ajusta el tamaño según sea necesario */
+  height: 20px;
+  object-fit: contain;
+  margin-left: 10px; /* Espacio entre el icono de ping y el número de jugadores */
 }

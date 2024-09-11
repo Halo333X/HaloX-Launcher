@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const startImage = document.getElementById("startImage");
     const downloadButton = document.getElementById("downloadButton");
     const reloadButton = document.getElementById("reloadButton");
-    const statusIcon = document.getElementById("statusIcon");
+    const statusContainer = document.getElementById("status");
 
     // Limpia el contenedor de fondo antes de agregar un nuevo fondo
     backgroundContainer.innerHTML = "";
@@ -31,12 +31,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       video.src = eventData.background; // some backgrounds: https://www.desktophut.com/search/minecraft
       backgroundContainer.appendChild(video);
 
-      // Intenta reproducir el video después de 2 segundos
-      setTimeout(() => {
-        video.play().catch((error) => {
-          console.error("Error playing video:", error);
-        });
-      }, 2000);
     } else {
       const img = document.createElement("img");
       img.id = "backgroundImage";
@@ -50,7 +44,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       img.style.objectFit = "cover";
       backgroundContainer.appendChild(img);
     }
-
+    setTimeout(() => {
+      video.play();
+    }, 2000);
     title.innerText = eventData.eventName;
 
     startButton.addEventListener("click", (event) => {
@@ -78,17 +74,41 @@ document.addEventListener("DOMContentLoaded", async () => {
       window.location.reload();
     });
 
-    // Actualiza el estado del servidor
-    console.log(eventData.serverStatus);
-    if (eventData.serverStatus) {
-      statusIcon.src = "https://ignitedsstudios.github.io/IgnitedsLauncherWeb/assets/status_on.png";
-    } else {
-      statusIcon.src = "https://ignitedsstudios.github.io/IgnitedsLauncherWeb/assets/status_off.png";
+    // Función para actualizar el número de jugadores en línea
+    async function updatePlayersOnline() {
+      try {
+        const res = await fetch('https://survivalcraft-6e68c-default-rtdb.firebaseio.com/serverStatus.json');
+        const get = await res.json();
+        if (get) {
+          const playersOnline = get.playersOnline;
+          const ping = get.latency;
+          function getPing(ping) {
+            if (ping <= 100) return "ping_green.png";
+            else if (ping >= 100 && ping <= 150) return "ping_yellow.png";
+            else return "ping_red.png";
+          }
+          statusContainer.innerHTML = `
+            <span id="playersOnline">${playersOnline}</span>
+            <img id="statusIcon" src="../assets/playersIcon.png" alt="Players Icon" style="width: 20px; object-fit: contain;" />
+            <img id="pingIcon" src="../assets/${getPing(ping)}" alt="Ping" style="width: 20px; object-fit: contain; margin-left: 10px;" />
+          `;
+        } else {
+          statusContainer.innerHTML = `
+            <span id="playersOnline">0</span>
+            <img id="statusIcon" src="../assets/playersIcon.png" alt="Players Icon" style="width: 20px; object-fit: contain;" />
+            <img id="pingIcon" src="../assets/ping_green.png" alt="Ping" style="width: 20px; object-fit: contain; margin-left: 10px;" />
+          `;
+        }
+      } catch (error) {
+        console.error("Error fetching players online:", error);
+      }
     }
 
-    // Ajusta el tamaño del icono del estatus
-    statusIcon.style.width = "32px"; // Cambia el tamaño según tus necesidades
-    statusIcon.style.height = "32px"; // Cambia el tamaño según tus necesidades
+    // Llama a la función de actualización inmediatamente
+    updatePlayersOnline();
+
+    // Configura el intervalo para actualizar el número de jugadores en línea cada 30 segundos
+    setInterval(updatePlayersOnline, 30000); // Cada 30 segundos
 
     // Añade un evento de clic en el documento para pausar o reanudar el video
     document.addEventListener("click", () => {
