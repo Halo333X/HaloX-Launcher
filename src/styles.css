@@ -38,13 +38,13 @@ html {
 
 #header {
   display: flex;
-  justify-content: center; /* Centra el contenido horizontalmente */
+  justify-content: center;
   align-items: center;
   position: absolute;
   top: 20px;
-  left: 50%; /* Mueve el contenedor al centro */
-  transform: translateX(-50%); /* Ajusta la posición para el centrado */
-  width: 100%; /* Asegura que el contenedor use todo el ancho disponible */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
 }
 
 #logo {
@@ -59,8 +59,8 @@ html {
   text-shadow:
     2px 2px 3px black,
     4px 4px 5px black,
-    6px 6px 7px black; /* Varias sombras para un efecto más grueso */
-  text-align: center; /* Alinea el texto dentro del contenedor */
+    6px 6px 7px black;
+  text-align: center;
 }
 
 #content {
@@ -108,53 +108,51 @@ html {
   box-shadow: 0px 2px 0 1px black;
 }
 
-/* Media queries para pantallas más pequeñas */
 @media (max-width: 768px) {
   #startImage {
-    width: 20%; /* Reduce el tamaño en pantallas más pequeñas */
+    width: 20%;
     height: 20%;
   }
 
   #downloadButton {
-    min-width: 20%; /* Ajusta el ancho mínimo */
-    max-width: 40%; /* Ajusta el ancho máximo */
-    padding: 4px 8px; /* Reduce el padding */
+    min-width: 20%;
+    max-width: 40%;
+    padding: 4px 8px;
   }
 }
 
 @media (max-width: 480px) {
   #startImage {
-    width: 40%; /* Reduce aún más el tamaño en pantallas muy pequeñas */
+    width: 40%;
     height: 40%;
   }
 
   #downloadButton {
-    min-width: 30%; /* Ajusta el ancho mínimo */
-    max-width: 50%; /* Ajusta el ancho máximo */
-    padding: 2px 4px; /* Reduce aún más el padding */
+    min-width: 30%;
+    max-width: 50%;
+    padding: 2px 4px;
   }
 }
 
-/* CSS para evitar la selección de texto */
 body {
-  user-select: none; /* Standard syntax */
-  -webkit-user-select: none; /* For Chrome, Safari, and Opera */
-  -moz-user-select: none; /* For Firefox */
-  -ms-user-select: none; /* For Internet Explorer/Edge */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 #backgroundContainer {
-  transition: opacity 0.5s ease-in-out; /* Cambia 0.5s por la duración que prefieras */
+  transition: opacity 0.5s ease-in-out;
 }
 
 #bottomContainer {
   position: absolute;
   bottom: 20px;
-  width: calc(100% - 40px); /* Ajusta el ancho para hacer espacio para ambos elementos */
+  width: calc(100% - 40px);
   display: flex;
-  justify-content: space-between; /* Alinea los elementos a los extremos */
+  justify-content: space-between;
   align-items: center;
-  left: 20px; /* Alinea el contenedor al lado izquierdo */
+  left: 20px;
 }
 
 #reloadButton {
@@ -167,7 +165,7 @@ body {
 }
 
 #reloadButton img {
-  width: 25px; /* Ajusta el tamaño de la imagen según sea necesario */
+  width: 25px;
   height: 25px;
   object-fit: contain;
 }
@@ -178,7 +176,7 @@ body {
 }
 
 #statusIcon {
-  width: 40px; /* Ajusta el tamaño del ícono */
+  width: 40px;
   height: 40px;
   object-fit: contain;
 }
@@ -190,10 +188,10 @@ body {
 }
 
 #pingIcon {
-  width: 20px; /* Ajusta el tamaño según sea necesario */
+  width: 20px;
   height: 20px;
   object-fit: contain;
-  margin-left: 10px; /* Espacio entre el icono de ping y el número de jugadores */
+  margin-left: 10px;
 }
 
 #ping {

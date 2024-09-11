@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const reloadButton = document.getElementById("reloadButton");
     const statusContainer = document.getElementById("status");
 
-    // Limpia el contenedor de fondo antes de agregar un nuevo fondo
     backgroundContainer.innerHTML = "";
 
     let video;
@@ -50,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     title.innerText = "";
 
     startButton.addEventListener("click", (event) => {
-      event.stopPropagation(); // Evita que el clic se propague al contenedor del video
+      event.stopPropagation();
       startImage.src = "../assets/startG.gif";
       setTimeout(async () => {
         startImage.src = "../assets/startP.png";
@@ -70,11 +69,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     reloadButton.addEventListener("click", (event) => {
-      event.stopPropagation(); // Evita que el clic se propague al contenedor del video
+      event.stopPropagation();
       window.location.reload();
     });
 
-    // Función para actualizar el número de jugadores en línea
     async function updatePlayersOnline() {
       try {
         const res = await fetch('https://survivalcraft-6e68c-default-rtdb.firebaseio.com/serverStatus.json');
@@ -106,28 +104,24 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     }
 
-    // Llama a la función de actualización inmediatamente
     updatePlayersOnline();
 
-    // Configura el intervalo para actualizar el número de jugadores en línea cada 30 segundos
-    setInterval(updatePlayersOnline, 1000); // Cada 30 segundos
+    setInterval(updatePlayersOnline, 1000);
 
-    // Añade un evento de clic en el documento para pausar o reanudar el video
     document.addEventListener("click", () => {
       if (video) {
         if (video.paused) {
           video.play().catch((error) => {
             console.error("Error playing video:", error);
           });
-          backgroundContainer.style.opacity = "1"; // Opacidad normal
+          backgroundContainer.style.opacity = "1";
         } else {
           video.pause();
-          backgroundContainer.style.opacity = "0.5"; // Opacidad reducida
+          backgroundContainer.style.opacity = "0.5";
         }
       }
     });
 
-    // Añade un evento de teclado para pausar o reanudar el video al presionar la barra espaciadora
     document.addEventListener("keydown", (event) => {
       if (event.code === "Space") {
         event.preventDefault();
@@ -136,10 +130,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             video.play().catch((error) => {
               console.error("Error playing video:", error);
             });
-            backgroundContainer.style.opacity = "1"; // Opacidad normal
+            backgroundContainer.style.opacity = "1";
           } else {
             video.pause();
-            backgroundContainer.style.opacity = "0.5"; // Opacidad reducida
+            backgroundContainer.style.opacity = "0.5";
           }
         }
       }
